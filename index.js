@@ -20,6 +20,8 @@ function idleTimer(options) {
   document.onmousemove = resetTimer;
   document.onkeypress = resetTimer;
 
+  resetTimer();
+
   function resetTimer() {
     clearTimeout(timer);
     timer = setTimeout(callback, idleTime);
