@@ -1,0 +1,15 @@
+{
+  "name": "idle-timer",
+  "version": "1.0.0",
+  "description": "Checks if a user is idle for a configurable amount of time and fires a callback ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "idle",
+    "timer"
+  ],
+  "author": "Orry Baram",
+  "license": "ISC"
+}
