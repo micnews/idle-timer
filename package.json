@@ -14,8 +14,12 @@
     "idle",
     "timer"
   ],
-  "author": "Orry Baram",
+  "author": "mic.com",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micnews/idle-timer/issues"
+  },
+  "homepage": "https://github.com/micnews/idle-timer#readme",
   "devDependencies": {
     "browserify": "^13.0.0",
     "electron-prebuilt": "^0.36.7",
