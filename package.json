@@ -1,15 +1,22 @@
 {
   "name": "idle-timer",
   "version": "1.0.0",
-  "description": "Checks if a user is idle for a configurable amount of time and fires a callback ",
+  "description": "Checks if a user is idle for a configurable amount of time and fires a callback",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "browserify test.js | testron | faucet"
   },
   "keywords": [
     "idle",
     "timer"
   ],
   "author": "Orry Baram",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "electron-prebuilt": "^0.36.7",
+    "faucet": "0.0.1",
+    "tape": "^4.4.0",
+    "testron": "^1.2.0"
+  }
 }
