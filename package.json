@@ -12,11 +12,6 @@
   ],
   "author": "Orry Baram",
   "license": "MIT",
-  "testling": {
-    "browsers": [
-      "chrome/latest"
-    ]
-  },
   "devDependencies": {
     "browser-run": "^3.0.8",
     "browserify": "^13.0.0",
