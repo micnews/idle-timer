@@ -14,13 +14,14 @@
   "license": "MIT",
   "testling": {
     "browsers": [
-        "chrome/latest"
+      "chrome/latest"
     ]
   },
   "devDependencies": {
     "browser-run": "^3.0.8",
     "browserify": "^13.0.0",
     "faucet": "0.0.1",
-    "tape": "^4.4.0"
+    "tape": "^4.4.0",
+    "testling": "^1.7.1"
   }
 }
