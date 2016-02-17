@@ -4,4 +4,4 @@ node_js:
 - 5
 - "node"
 before_script:
-  - npm install -g testling faucet
+  - npm install -g testling faucet browserify
