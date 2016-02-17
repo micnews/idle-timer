@@ -1,6 +1,6 @@
 {
   "name": "idle-timer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Checks if a user is idle for a configurable amount of time and fires a callback",
   "main": "index.js",
   "scripts": {

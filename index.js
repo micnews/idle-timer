@@ -18,6 +18,7 @@ function idleTimer(options) {
   
   window.onload = resetTimer;
   document.onmousemove = resetTimer;
+  document.onscroll = resetTimer;
   document.onkeypress = resetTimer;
 
   resetTimer();
