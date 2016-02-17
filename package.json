@@ -6,6 +6,10 @@
   "scripts": {
     "test": "browserify test.js | testron | faucet"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micnews/idle-timer.git"
+  },
   "keywords": [
     "idle",
     "timer"
