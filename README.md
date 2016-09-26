@@ -9,6 +9,8 @@ Checks if a user is idle for a configurable amount of time and fires a callback
 var timer = idleTimer({
   // function to fire after idle
   callback: callbackFn,
+  // function to fire when active
+  activeCallback: activeCallbackFn,
   // Amount of time in milliseconds before becoming idle. default 60000
   idleTime: 5000
 })
