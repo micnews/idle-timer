@@ -6,6 +6,20 @@ test('idleTimer is a function', function (t) {
   t.end();
 });
 
+test('idleTimer.destroy removes the listeners', function (t) {
+  var foo = 'nothing happened';
+  t.plan(1);
+  idleTimer({
+    callback: function() {
+      foo = 'beep';
+    },
+    idleTime: 10
+  }).destroy();
+  setTimeout(function() {
+    t.equal(foo, 'nothing happened');
+  }, 11);
+});
+
 test('idleTimer callback gets called after being idle', function (t) {
   var foo;
   t.plan(2);
