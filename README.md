@@ -6,7 +6,7 @@ Checks if a user is idle for a configurable amount of time and fires a callback
 
 ### Usage
 ```js
-idleTimer({
+var timer = idleTimer({
   // function to fire after idle
   callback: callbackFn,
   // Amount of time in milliseconds before becoming idle. default 60000
@@ -15,4 +15,8 @@ idleTimer({
 function callbackFn () {
   console.log("You're idle!");
 }
+
+// when no longer needed, destroy() will remove
+// all of the event listeners and clear the timeouts
+timer.destroy();
 ```

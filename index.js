@@ -15,16 +15,26 @@ function idleTimer(options) {
   var callback = options.callback || function() {};
   var idleTime = options.idleTime || 60000;
   var timer;
-  
-  window.onload = resetTimer;
-  document.onmousemove = resetTimer;
-  document.onscroll = resetTimer;
-  document.onkeypress = resetTimer;
 
+  addOrRemoveEvents('addEventListener');
   resetTimer();
+
+  function addOrRemoveEvents(addOrRemove) {
+    window[addOrRemove]('load', resetTimer);
+    document[addOrRemove]('mousemove', resetTimer);
+    document[addOrRemove]('scroll', resetTimer);
+    document[addOrRemove]('keypress', resetTimer);
+  }
 
   function resetTimer() {
     clearTimeout(timer);
     timer = setTimeout(callback, idleTime);
   }
+
+  return {
+    destroy: function() {
+      clearTimeout(timer);
+      addOrRemoveEvents('removeEventListener');
+    }
+  };
 }
