@@ -20,31 +20,38 @@ function idleTimer(options) {
   var timer;
 
   addOrRemoveEvents('addEventListener');
-  resetTimer();
+  activate();
 
   function addOrRemoveEvents(addOrRemove) {
-    window[addOrRemove]('load', resetTimer);
-    document[addOrRemove]('mousemove', resetTimer);
-    document[addOrRemove]('scroll', resetTimer);
-    document[addOrRemove]('keypress', resetTimer);
+    window[addOrRemove]('load', activate);
+    document[addOrRemove]('mousemove', activate);
+    document[addOrRemove]('scroll', activate);
+    document[addOrRemove]('keypress', activate);
   }
 
-  function resetTimer() {
+  function activate() {
     if (!isActive) {
       isActive = true;
       activeCallback();
     }
     clearTimeout(timer);
-    timer = setTimeout(function() {
-      isActive = false;
-      callback();
-    }, idleTime);
+    timer = setTimeout(idle, idleTime);
+  }
+
+  function idle() {
+    if (!isActive) return;
+    isActive = false;
+    callback();
+  }
+
+  function destroy() {
+    clearTimeout(timer);
+    addOrRemoveEvents('removeEventListener');
   }
 
   return {
-    destroy: function() {
-      clearTimeout(timer);
-      addOrRemoveEvents('removeEventListener');
-    }
+    activate: activate,
+    destroy: destroy,
+    idle: idle
   };
 }

@@ -20,6 +20,44 @@ test('idleTimer.destroy removes the listeners', function (t) {
   }, 11);
 });
 
+test('idleTimer.idle explicitly stops the timer and reports idle', function (t) {
+  var foo = 0;
+  t.plan(2);
+  var timer = idleTimer({
+    callback: function() {
+      foo++;
+    },
+    idleTime: 10
+  });
+  timer.idle();
+  setTimeout(function() {
+    t.equal(foo, 1);
+  }, 9);
+  setTimeout(function() {
+    t.equal(foo, 1);
+  }, 11);
+});
+
+test('idleTimer.active explicitly resets the timer', function (t) {
+  var foo = 0;
+  t.plan(2);
+  var timer = idleTimer({
+    callback: function() {
+      foo++;
+    },
+    idleTime: 10
+  });
+  setTimeout(function() {
+    timer.activate();
+    setTimeout(function() {
+      t.equal(foo, 1);
+    }, 11);
+  }, 5);
+  setTimeout(function() {
+    t.equal(foo, 0);
+  }, 11);
+});
+
 test('idleTimer callback gets called after being idle', function (t) {
   var foo;
   t.plan(2);
